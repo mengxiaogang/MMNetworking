@@ -21,6 +21,9 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		65781696239A2FCB003932ED /* MMTestReqeust.m in Sources */ = {isa = PBXBuildFile; fileRef = 65781695239A2FCB003932ED /* MMTestReqeust.m */; };
+		65781699239A6D5F003932ED /* MMTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 65781698239A6D5F003932ED /* MMTestModel.m */; };
+		6578169C239A6FEC003932ED /* MMTestResultItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6578169B239A6FEC003932ED /* MMTestResultItemModel.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		AAD4A7A2ED649C7C0C66A5FA /* Pods_MMNetworking_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15ABCB60C650FC96EDD4239B /* Pods_MMNetworking_Tests.framework */; };
@@ -59,6 +62,12 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		65781694239A2FCB003932ED /* MMTestReqeust.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTestReqeust.h; sourceTree = "<group>"; };
+		65781695239A2FCB003932ED /* MMTestReqeust.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTestReqeust.m; sourceTree = "<group>"; };
+		65781697239A6D5F003932ED /* MMTestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTestModel.h; sourceTree = "<group>"; };
+		65781698239A6D5F003932ED /* MMTestModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTestModel.m; sourceTree = "<group>"; };
+		6578169A239A6FEC003932ED /* MMTestResultItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTestResultItemModel.h; sourceTree = "<group>"; };
+		6578169B239A6FEC003932ED /* MMTestResultItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTestResultItemModel.m; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80C8F21EE1FC09FBC81F367E /* Pods_MMNetworking_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MMNetworking_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -143,6 +152,7 @@
 		6003F593195388D20070C39A /* Example for MMNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				65781690239A2F55003932ED /* TestRequest */,
 				6003F59C195388D20070C39A /* MMAppDelegate.h */,
 				6003F59D195388D20070C39A /* MMAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -194,6 +204,19 @@
 				DEFF42DEA84B792E17798F40 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		65781690239A2F55003932ED /* TestRequest */ = {
+			isa = PBXGroup;
+			children = (
+				65781694239A2FCB003932ED /* MMTestReqeust.h */,
+				65781695239A2FCB003932ED /* MMTestReqeust.m */,
+				65781697239A6D5F003932ED /* MMTestModel.h */,
+				65781698239A6D5F003932ED /* MMTestModel.m */,
+				6578169A239A6FEC003932ED /* MMTestResultItemModel.h */,
+				6578169B239A6FEC003932ED /* MMTestResultItemModel.m */,
+			);
+			path = TestRequest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,10 +361,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MMNetworking_Example/Pods-MMNetworking_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MMNetworking/MMNetworking.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMNetworking.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,7 +404,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* MMAppDelegate.m in Sources */,
+				6578169C239A6FEC003932ED /* MMTestResultItemModel.m in Sources */,
 				6003F5A7195388D20070C39A /* MMViewController.m in Sources */,
+				65781696239A2FCB003932ED /* MMTestReqeust.m in Sources */,
+				65781699239A6D5F003932ED /* MMTestModel.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

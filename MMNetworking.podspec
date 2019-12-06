@@ -24,7 +24,7 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/mengxiaogang/MMNetworking'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Michael.Meng' => 'mxg1022@126.com' }
+  s.author           = { 'Michael.Meng' => 'Michael.Meng@126.com' }
   s.source           = { :git => 'https://github.com/mengxiaogang/MMNetworking.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
@@ -36,7 +36,10 @@ TODO: Add long description of the pod here.
   #   'MMNetworking' => ['MMNetworking/Assets/*.png']
   # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  # config dependency lib
+  s.public_header_files = 'Pod/Classes/**/*.h'
+  s.frameworks = 'UIKit', 'MapKit'
+  s.dependency 'AFNetworking',  '~> 3.0'
+  s.dependency 'MJExtension',   '~> 3.0.15.1'
+  s.dependency 'MBProgressHUD', '~> 0.9.1'
 end

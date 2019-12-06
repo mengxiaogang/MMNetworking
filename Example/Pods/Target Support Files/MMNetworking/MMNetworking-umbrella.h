@@ -10,7 +10,12 @@
 #endif
 #endif
 
+#import "MMNetworking.h"
 #import "MMNetworkManager.h"
+#import "MMAPIClient.h"
+#import "MMBaseRequest.h"
+#import "MMPageInfoModel.h"
+#import "MMRequestResult.h"
 
 FOUNDATION_EXPORT double MMNetworkingVersionNumber;
 FOUNDATION_EXPORT const unsigned char MMNetworkingVersionString[];

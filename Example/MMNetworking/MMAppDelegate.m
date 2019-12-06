@@ -7,13 +7,59 @@
 //
 
 #import "MMAppDelegate.h"
+#import <MMNetworking/MMNetworking.h>
+#import "MMTestReqeust.h"
+#import "MMTestModel.h"
+
+static NSString * PROJECT_REQUET_DOMAIN = @"https://itunes.apple.com/";
 
 @implementation MMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [self launchConfigDomain];
+    [self useMMNetWorkingDemo];
     return YES;
+}
+
+#pragma mark - Request Start -
+// You only need to configure it once at startup
+- (void)launchConfigDomain
+{
+    [MMAPIClient configDomain:PROJECT_REQUET_DOMAIN];
+}
+
+- (void)useMMNetWorkingDemo
+{
+    [MMNetworkManager testLog:@"TestLog"];
+    [self performSelector:@selector(testRequest) withObject:nil afterDelay:1];
+}
+
+- (void)testRequest
+{
+    [MMTestReqeust GETWithParameters:@{@"id":@""}
+                   showLoadingInView:_window
+                            progress:nil
+                             success:^(MMBaseRequest *request) {
+                                 NSLog(@"success, request %@", request);
+                                 NSLog(@"success, responseObject %@", request.responseObject);
+                                 
+                                 [self layoutUIWithReqeust:request];
+                             } failure:^(NSURLSessionDataTask * _Nullable task, NSError *error) {
+                                 NSLog(@"failure, request %@", error);
+                             }];
+}
+
+- (void)layoutUIWithReqeust:(MMBaseRequest *)request
+{
+    MMTestModel *model = request.responseObject;
+    if (model) {
+        for (MMTestResultItemModel *item in model.results) {
+            NSLog(@"artistId: %@", item.artistId);
+            NSLog(@"artistName: %@", item.artistName);
+            NSLog(@"artistViewUrl: %@", item.artistViewUrl);
+        }
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

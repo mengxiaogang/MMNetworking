@@ -10,7 +10,7 @@
 
 @implementation MMNetworkManager
 
-- (void)testLog:(NSString *)text
++ (void)testLog:(NSString *)text
 {
     NSLog(@"%@", text);
 }
