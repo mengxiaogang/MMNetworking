@@ -50,10 +50,11 @@ static NSString * PROJECT_REQUET_DOMAIN = @"https://itunes.apple.com/";
                              }];
 }
 
-- (void)layoutUIWithReqeust:(MMBaseRequest *)request
+- (void)layoutUIWithReqeust:(MMBaseRequest *)requestResult
 {
-    MMTestModel *model = request.responseObject;
+    MMTestModel *model = requestResult.responseObject;
     if (model) {
+        NSLog(@"items info: \n");
         for (MMTestResultItemModel *item in model.results) {
             NSLog(@"artistId: %@", item.artistId);
             NSLog(@"artistName: %@", item.artistName);

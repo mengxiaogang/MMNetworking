@@ -5,6 +5,13 @@
 [![License](https://img.shields.io/cocoapods/l/MMNetworking.svg?style=flat)](https://cocoapods.org/pods/MMNetworking)
 [![Platform](https://img.shields.io/cocoapods/p/MMNetworking.svg?style=flat)](https://cocoapods.org/pods/MMNetworking)
 
+## Main functions introduce
+
+You can complete the network request through it. It mainly realizes:
+1. Configure parameters of each interface by inheriting mmbaserequest class
+2. Process the request result by inheriting mmbaserequest
+3. When the request is initiated, the parameter controls whether loading is required
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
